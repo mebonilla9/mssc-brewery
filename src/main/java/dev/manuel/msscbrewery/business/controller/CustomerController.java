@@ -34,13 +34,13 @@ public class CustomerController {
     return new ResponseEntity(headers, HttpStatus.CREATED);
   }
 
-  @PutMapping("/{beerId}")
-  public ResponseEntity handleUpdate(@PathVariable("beerId") UUID customerId, CustomerDto beerDto) {
+  @PutMapping("/{customerId}")
+  public ResponseEntity handleUpdate(@PathVariable("customerId") UUID customerId, CustomerDto beerDto) {
     customerService.updateCustomer(customerId, beerDto);
     return new ResponseEntity(HttpStatus.NO_CONTENT);
   }
 
-  @DeleteMapping("/{beerId}")
+  @DeleteMapping("/{customerId}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void deleteBeer(@PathVariable("customerId") UUID customerId) {
     customerService.deleteById(customerId);
